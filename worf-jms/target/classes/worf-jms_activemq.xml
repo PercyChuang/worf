@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:property-placeholder ignore-unresolvable="true" ignore-resource-not-found="true" location="classpath:conf/jms.properties" />
+
+    <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${activemq.broker.url}" />
+        <property name="userName" value="${activemq.userName}" />
+        <property name="password" value="${activemq.password}" />
+        <property name="useAsyncSend" value="true" />
+    </bean>
+
+    <bean id="defaultJmsTemplate" class="org.springframework.jms.core.JmsTemplate" abstract="true">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="explicitQosEnabled" value="true" />
+        <property name="deliveryPersistent" value="true" />
+        <property name="sessionTransacted" value="true" />
+        <property name="priority" value="5" />
+    </bean>
+
+    <bean id="defaultMessageListener" class="org.springframework.jms.listener.DefaultMessageListenerContainer" abstract="true">
+        <property name="autoStartup" value="${activemq.listener.autoStartup}" />
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="sessionTransacted" value="true" />
+        <property name="concurrentConsumers" value="1" />
+        <property name="maxConcurrentConsumers" value="1" />
+        <property name="cacheLevel" value="2" />
+    </bean>
+
+</beans>

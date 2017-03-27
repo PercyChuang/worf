@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+
+	<bean id="schedulerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="applicationContextSchedulerContextKey" value="applicationContextKey" />
+		<property name="configLocation" value="classpath:theQuartz.properties" />
+		<property name="waitForJobsToCompleteOnShutdown" value="true" />
+		<property name="overwriteExistingJobs" value="true" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="startupDelay" value="10" />
+	</bean>
+
+	<bean id="schedulerService" class="orj.worf.quartz.SchedulerService" destroy-method="close">
+		<property name="scheduler" ref="schedulerFactory" />
+	</bean>
+	
+	<!-- 
+	<import resource="classpath:worf-quartz_remote_provider.xml" /> 
+	-->
+</beans>

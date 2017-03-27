@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<import resource="classpath:worf-core_base.xml" />
+	<import resource="classpath:worf-core_scanner.xml" />
+	<import resource="classpath:worf-validation_hibernate.xml" />
+	<import resource="classpath:worf-aop_cglib.xml" />
+	<import resource="classpath:worf-security_config.xml" />
+	<import resource="classpath:worf-exception_config.xml" />
+	<import resource="classpath:worf-service_config.xml" />
+
+</beans>

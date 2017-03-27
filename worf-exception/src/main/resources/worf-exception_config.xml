@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<bean id="worfExceptionInterceptor" class="orj.worf.exception.interceptor.ExceptionInterceptor" />
+    <aop:config>
+        <aop:aspect id="appExceptionInterceptorAspect" ref="worfExceptionInterceptor" order="190">
+            <aop:pointcut expression="orj.worf.aop.pointcut.SpringPointcuts.springAnnotations()" id="springAnnotations" />
+            <aop:after-throwing method="handleAppException" throwing="e" pointcut-ref="springAnnotations" />
+        </aop:aspect>
+    </aop:config>
+</beans>

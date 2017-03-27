@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+	<description>Worf JSP Tag Library</description>
+	<tlib-version>1.2</tlib-version>
+	<short-name>worf-url</short-name>
+	<uri>/worf.orj/tags/url</uri>
+	<tag>
+		<description>URL地址常量</description>
+		<name>constant</name>
+		<tag-class>orj.worf.web.base.tag.ConstantTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>项目名</description>
+			<name>namespace</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>字段名</description>
+			<name>fieldName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+</taglib>

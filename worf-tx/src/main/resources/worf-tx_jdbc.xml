@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" p:defaultTimeout="3" />
+
+    <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+        <property name="targetDataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSourceProxy" />
+    </bean>
+	<bean id="dataSourceAspect" class="orj.worf.tx.pointcut.DataSourceAspect" />
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" mode="proxy" order="200" />
+
+	<tx:advice id="myTxAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 读操作 -->
+			<tx:method name="select*" propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="search*" propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="query*"  propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="find*"   propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="load*"   propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="get*"    propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="list*"   propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+			<tx:method name="count*"  propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" />
+            <tx:method name="locked*" propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true" rollback-for="Exception" />
+            <!-- 其它操作 -->
+            <tx:method name="*"       propagation="REQUIRED" isolation="READ_COMMITTED" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+     <aop:config>
+         <aop:aspect ref="dataSourceAspect" order="125">
+             <aop:pointcut id="dataSourcePointcut" expression="orj.worf.tx.pointcut.DataSourcePointcuts.dsMarkPointcut()"/>
+             <aop:before pointcut-ref="dataSourcePointcut" method="intercept" />
+             <aop:after pointcut-ref="dataSourcePointcut" method="interceptAfter" />
+         </aop:aspect>
+     </aop:config>
+	<aop:config>
+		<aop:pointcut id="myTxPointcut" expression="orj.worf.tx.pointcut.TxPointcuts.txMarkPointcut()" />
+		<aop:advisor advice-ref="myTxAdvice" pointcut-ref="myTxPointcut" order="195" />
+	</aop:config>
+</beans>

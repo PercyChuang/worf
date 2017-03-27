@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+    xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://mybatis.org/schema/mybatis-spring
+			http://mybatis.org/schema/mybatis-spring-1.2.xsd">
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:worf-mybatis_config.xml" />
+        <property name="failFast" value="true" />
+        <property name="mapperLocations">
+            <array>
+                <!-- 
+                <value>classpath:sqlmap/**/*SqlMap.xml</value>
+                <value>classpath:sqlmap/**/*Mapper.xml</value>
+                -->
+                <value>classpath:sqlmap/**/*.xml</value>
+            </array>
+        </property>
+    </bean>
+
+    <mybatis:scan base-package="**.mapper.**" factory-ref="sqlSessionFactory" />
+
+    <bean id="simpleSqlSession" class="orj.worf.mybatis.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="SIMPLE" />
+    </bean>
+    <bean id="reuseSqlSession" class="orj.worf.mybatis.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="REUSE" />
+    </bean>
+    <bean id="batchSqlSession" class="orj.worf.mybatis.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="BATCH" />
+    </bean>
+
+</beans>

@@ -1,0 +1,11 @@
+orj\worf\mybatis\util\ReflectionUtils.class
+orj\worf\mybatis\dialect\MySql5Dialect.class
+orj\worf\mybatis\SqlSessionTemplate.class
+orj\worf\mybatis\interceptor\PaginationInterceptor.class
+orj\worf\mybatis\util\CountHelper$1.class
+orj\worf\mybatis\util\CountHelper.class
+orj\worf\mybatis\mapper\MapperScannerConfigurer.class
+orj\worf\mybatis\dialect\Dialect$Type.class
+orj\worf\mybatis\dialect\OracleDialect.class
+orj\worf\mybatis\dialect\Dialect.class
+orj\worf\mybatis\dialect\MySql5PageHepler.class

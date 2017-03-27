@@ -1,0 +1,3 @@
+orj\worf\aop\util\AopTargetUtils.class
+orj\worf\aop\pointcut\CommonPointcuts.class
+orj\worf\aop\pointcut\SpringPointcuts.class

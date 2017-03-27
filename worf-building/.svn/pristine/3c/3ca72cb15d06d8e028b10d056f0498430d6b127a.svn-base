@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>orj.worf</groupId>
+  <artifactId>worf-building</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>../worf-parent</module>
+  	<module>../worf-container-parent</module>
+  	<module>../worf-web-parent</module>
+	<module>../worf-log</module>
+  	<module>../worf-core</module>
+  	<module>../worf-validation</module>
+  	<module>../worf-util</module>
+  	<module>../worf-container-spring</module>
+  	<module>../worf-aop</module>
+    <module>../worf-security</module>
+    <module>../worf-exception</module>
+  	<module>../worf-datasource</module>
+  	<module>../worf-mybatis</module>
+  	<module>../worf-tx</module>
+  	<module>../worf-jms</module>
+  	<module>../worf-remoting-dubbo</module>
+  	<module>../worf-web-base</module>
+  	<module>../worf-quartz</module>
+  	<module>../worf-loading</module>
+  </modules>
+</project>

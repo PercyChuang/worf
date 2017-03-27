@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="clientIdConfig" class="orj.worf.jms.config.ClientIdConfig">
+		<constructor-arg value="${activemq.clientId}" />
+	</bean>
+
+	<bean id="topicListenerConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory" depends-on="clientIdConfig">
+		<property name="clientID" value="#{clientIdConfig.clientId}" />
+		<property name="brokerURL" value="${activemq.broker.url}" />
+		<property name="userName" value="${activemq.userName}" />
+		<property name="password" value="${activemq.password}" />
+		<property name="useAsyncSend" value="true" />
+	</bean>
+
+	<bean id="abstractTopicJmsTemplate" parent="defaultJmsTemplate" abstract="true">
+		<property name="pubSubDomain" value="true" />
+	</bean>
+
+	<bean id="abstractTopicMessageListener" class="orj.worf.jms.listener.DurableSubscriber" abstract="true" depends-on="clientIdConfig">
+		<property name="durableSubscriptionName" value="#{clientIdConfig.durableSubscriptionName}" />
+		<property name="connectionFactory" ref="topicListenerConnectionFactory" />
+		<property name="autoStartup" value="${activemq.listener.autoStartup}" />
+		<property name="subscriptionDurable" value="true" />
+		<property name="sessionTransacted" value="true" />
+		<property name="maxConcurrentConsumers" value="1" />
+		<property name="concurrentConsumers" value="1" />
+		<property name="pubSubDomain" value="true" />
+		<property name="cacheLevel" value="2" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,49 @@
+#planningJobs {
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 1024px;
+	margin-top: 3px;
+}
+
+#executingJobs {
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 600px;
+	margin-top: 3px;
+}
+
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 280px;
+	margin-top: 3px;
+}
+
+td {
+	border: 1px solid;
+}
+
+td.bold {
+	font-weight: bold;
+}
+
+a {
+	font-size: 14px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:active: {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	color: red;
+	text-decoration: none;
+}

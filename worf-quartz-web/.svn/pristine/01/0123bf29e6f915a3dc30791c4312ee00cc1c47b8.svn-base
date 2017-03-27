@@ -1,0 +1,2 @@
+dubbo.transport.version=${dubbo.version}
+dubbo.transport.url=${dubbo.url}
