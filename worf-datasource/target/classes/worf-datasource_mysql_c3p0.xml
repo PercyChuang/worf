@@ -34,40 +34,12 @@
 		<property name="maxPoolSize" value="${jdbc1.pool.size.max}" />
 	</bean>
 	
-	<bean id="dataSource3" parent="commonDataSourceConfig" lazy-init="true">
-		<property name="driverClass" value="${jdbc2.driverclass}" />
-		<property name="jdbcUrl" value="${jdbc2.url}" />
-		<property name="user" value="${jdbc2.username}" />
-		<property name="password" value="${jdbc2.password}" />
-		<property name="maxPoolSize" value="${jdbc2.pool.size.max}" />
-	</bean>
-	
-	<bean id="dataSource4" parent="commonDataSourceConfig" lazy-init="true">
-		<property name="driverClass" value="${jdbc3.driverclass}" />
-		<property name="jdbcUrl" value="${jdbc3.url}" />
-		<property name="user" value="${jdbc3.username}" />
-		<property name="password" value="${jdbc3.password}" />
-		<property name="maxPoolSize" value="${jdbc3.pool.size.max}" />
-	</bean>
-	
-	<bean id="dataSource5" parent="commonDataSourceConfig" lazy-init="true">
-		<property name="driverClass" value="${jdbc4.driverclass}" />
-		<property name="jdbcUrl" value="${jdbc4.url}" />
-		<property name="user" value="${jdbc4.username}" />
-		<property name="password" value="${jdbc4.password}" />
-		<property name="maxPoolSize" value="${jdbc4.pool.size.max}" />
-	</bean>
-	
-	
 	<bean id="dataSource" class="orj.worf.datasource.DynamicDataSource">  
      <property name="targetDataSources">  
          <map key-type="java.lang.String">
              <!-- 指定lookupKey和与之对应的数据源 -->
              <entry key="jdbc" value-ref="dataSource1"></entry>  
              <entry key="jdbc1" value-ref="dataSource2"></entry> 
-             <entry key="jdbc2" value-ref="dataSource3"></entry>
-             <entry key="jdbc3" value-ref="dataSource4"></entry>
-             <entry key="jdbc4" value-ref="dataSource5"></entry> 
          </map>
      </property>  
      <!-- 这里可以指定默认的数据源 -->

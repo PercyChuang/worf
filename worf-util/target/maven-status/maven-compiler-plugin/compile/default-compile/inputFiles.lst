@@ -10,6 +10,7 @@ F:\javawork\work3\worf-util\src\main\java\orj\worf\util\DecimalUtil.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\ConcurrentHashSet.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\LocalBarrier.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\LocaleUtils.java
+F:\javawork\work3\worf-util\src\main\java\orj\worf\util\hash\HashFunctionImpl.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\GZIPResponseStream.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\CharEncoding.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\ObjectId.java
@@ -35,6 +36,7 @@ F:\javawork\work3\worf-util\src\main\java\orj\worf\util\IOUtils.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\LRUCache.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\CookieUtils.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\DataCache.java
+F:\javawork\work3\worf-util\src\main\java\orj\worf\util\hash\ConsistentHashUtil.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\http\HttpClientShutdownHook.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\http\BytesResponseHandler.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\NamedThreadFactory.java
@@ -43,8 +45,9 @@ F:\javawork\work3\worf-util\src\main\java\orj\worf\util\JsonUtils.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\SequenceUtils.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\Charsets.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\HttpUtils.java
-F:\javawork\work3\worf-util\src\main\java\orj\worf\util\HttpInvoker.java
+F:\javawork\work3\worf-util\src\main\java\orj\worf\util\hash\HashFunction.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\RandomStringGenerator.java
+F:\javawork\work3\worf-util\src\main\java\orj\worf\util\HttpInvoker.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\AESUtils.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\http\StringResponseHandler.java
 F:\javawork\work3\worf-util\src\main\java\orj\worf\util\EncryptionUtils.java

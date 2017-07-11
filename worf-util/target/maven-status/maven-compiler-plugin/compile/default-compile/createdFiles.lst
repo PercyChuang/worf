@@ -8,6 +8,7 @@ orj\worf\util\LRUCache$ManagedItem.class
 orj\worf\util\DecimalUtil.class
 orj\worf\util\Charsets.class
 orj\worf\util\Utf8.class
+orj\worf\util\hash\HashFunction.class
 orj\worf\util\Threads.class
 orj\worf\util\SequenceUtils.class
 orj\worf\util\ResourceTracker$2.class
@@ -21,12 +22,14 @@ orj\worf\util\IOUtils.class
 orj\worf\util\ExecutorUtil.class
 orj\worf\util\EncryptionUtils.class
 orj\worf\util\RandomStringGenerator.class
+orj\worf\util\hash\ConsistentHashUtil.class
 orj\worf\util\Assert.class
 orj\worf\util\ResourceUtils.class
 orj\worf\util\ConcurrentHashSet.class
 orj\worf\util\Threads$WrapExceptionRunnable.class
 orj\worf\util\http\StringResponseHandler.class
 orj\worf\util\UnsafeByteArrayInputStream.class
+orj\worf\util\hash\HashFunctionImpl.class
 orj\worf\util\http\HttpClientShutdownHook.class
 orj\worf\util\ServletUtils.class
 orj\worf\util\ObjectId.class
