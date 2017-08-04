@@ -26,7 +26,7 @@
 					<excludes>
 						<exclude>bin/**</exclude>
 						<exclude>conf/**</exclude>
-						<exclude>*.properties</exclude>
+						<!-- <exclude>*.properties</exclude> -->
 					</excludes>
 				</configuration>
 			</plugin>
